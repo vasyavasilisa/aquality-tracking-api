@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="question_tables" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+
+            DROP TABLE IF EXISTS `question_categories`;
+
+            #
+
+            CREATE TABLE `question_categories` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY `name_UNIQUE` (`name`)
+            )
+
+            #
+
+            DROP TABLE IF EXISTS `qualification`;
+
+            #
+
+            CREATE TABLE `qualification` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(45) NOT NULL,
+            `order` int(11) NOT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY `name_UNIQUE` (`name`)
+            )
+
+            #
+
+            DROP TABLE IF EXISTS `question_statuses`;
+
+            #
+
+            CREATE TABLE `question_statuses` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(45) NOT NULL,
+            `color` int(1) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY `name_UNIQUE` (`name`)
+            )
+
+            #
+
+            DROP TABLE IF EXISTS `questions`;
+
+            #
+
+            CREATE TABLE `questions` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `status_id` int(11) DEFAULT NULL,
+            `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            `category_id` int(11) NOT NULL,
+            `min_qual_id` int(11) DEFAULT NULL,
+            `max_qual_id` int(11) DEFAULT NULL,
+            `question` varchar(200) NOT NULL,
+            `answer` varchar(200) NOT NULL,
+            `creator_id` int(11) DEFAULT NULL,
+            `approver_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            KEY `question_to_status_idx` (`status_id`),
+            KEY `minqual_to_qualification_idx` (`min_qual_id`),
+            KEY `maxqual_to_qualification_idx` (`max_qual_id`),
+            KEY `creator_to_user_idx` (`creator_id`),
+            KEY `approver_to_user_idx` (`approver_id`),
+            KEY `question_category_idx` (`category_id`),
+            CONSTRAINT `approver_user` FOREIGN KEY (`approver_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+            CONSTRAINT `creator_user` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+            CONSTRAINT `maxqual_qualification` FOREIGN KEY (`max_qual_id`) REFERENCES `qualification` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+            CONSTRAINT `minqual_qualification` FOREIGN KEY (`min_qual_id`) REFERENCES `qualification` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+            CONSTRAINT `question_category` FOREIGN KEY (`category_id`) REFERENCES `question_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+            CONSTRAINT `question_status` FOREIGN KEY (`status_id`) REFERENCES `question_statuses` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+            )
+
+        </sql>
+        <rollback>
+            DROP Table IF EXISTS `questions`;
+            DROP Table IF EXISTS `question_statuses`;
+            DROP Table IF EXISTS `question_categories`;
+            DROP Table IF EXISTS `qualification`;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="Add questions_BEFORE_INSERT Trigger to Insert Questions" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+
+            DROP TRIGGER IF EXISTS questions_BEFORE_INSERT
+
+            #
+
+            CREATE TRIGGER questions_BEFORE_INSERT BEFORE INSERT ON `questions` FOR EACH ROW
+            BEGIN
+            DECLARE minqual_order INT;
+            DECLARE maxqual_order INT;
+            SET minqual_order = (SELECT qualification.order FROM qualification WHERE id = NEW.min_qual_id);
+            SET maxqual_order = (SELECT qualification.order FROM qualification WHERE id = NEW.max_qual_id);
+            IF minqual_order>maxqual_order
+            THEN SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Min Qualification must be less or equal to Max Qualification!';
+            END IF;
+            END
+        </sql>
+        <rollback>
+            DROP TRIGGER IF EXISTS questions_BEFORE_INSERT
+        </rollback>
+    </changeSet>
+
+    <changeSet id="Add INSERT_DRAFT_QUESTIONS procedure" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+
+            DROP procedure IF EXISTS `INSERT_DRAFT_QUESTIONS`
+
+            #
+
+            CREATE PROCEDURE `INSERT_DRAFT_QUESTIONS` (
+            In request_id varchar(11),
+            In request_category_id varchar(11),
+            In request_minqual_id varchar(11),
+            In request_maxqual_id varchar(11),
+            In request_question varchar(200),
+            In request_answer varchar(200),
+            In request_creator_id varchar(11)
+            )
+            BEGIN INSERT INTO questions (id, status_id, category_id, min_qual_id, max_qual_id, question, answer, creator_id)
+            VALUES (IF(request_id='',null,request_id),(SELECT id FROM question_statuses WHERE name = 'Draft'),request_category_id, request_minqual_id, request_maxqual_id, request_question, request_answer, request_creator_id)
+            ON DUPLICATE KEY UPDATE
+            category_id= IF(request_category_id = '', category_id, request_category_id),
+            min_qual_id = IF(request_minqual_id = '', min_qual_id, request_minqual_id),
+            max_qual_id = IF(request_maxqual_id = '', max_qual_id, request_maxqual_id),
+            question = IF(request_question = '', question, request_question),
+            answer = IF(request_answer = '', answer, request_answer),
+            creator_id = IF(request_creator_id = '', creator_id, request_creator_id)
+            ;
+            Select * from questions Where id=LAST_INSERT_ID();
+            END
+            ;;
+        </sql>
+        <rollback>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
