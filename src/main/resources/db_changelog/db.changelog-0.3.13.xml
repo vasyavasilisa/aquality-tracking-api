@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="Add records and SELECT_QUESTION_STATUSES procedure to question_statuses table" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+            INSERT INTO question_statuses (id, name, color) values (1, 'Draft', '3');
+            #
+            INSERT INTO question_statuses (id, name, color) values (2, 'Approved', '5');
+
+            #
+            DROP procedure IF EXISTS `SELECT_QUESTION_STATUSES`
+            #
+
+            CREATE PROCEDURE `SELECT_QUESTION_STATUSES` (
+            In request_id varchar(11)
+            )
+            BEGIN
+            SELECT * FROM question_statuses WHERE (request_id = '' OR id=request_id);
+            END
+            ;;
+        </sql>
+        <rollback>
+            DELETE FROM question_statuses WHERE name in ('Draft', 'Approved')
+        </rollback>
+    </changeSet>
+
+    <changeSet id="Add records and SELECT_QUESTION_CATEGORIES procedure to question_categories table" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+            INSERT INTO question_categories VALUES (1, 'Git');
+            #
+            INSERT INTO question_categories VALUES (2, 'Docker');
+
+            #
+            DROP procedure IF EXISTS `SELECT_QUESTION_CATEGORIES`
+            #
+
+            CREATE PROCEDURE `SELECT_QUESTION_CATEGORIES` (
+            In request_id varchar(11)
+            )
+            BEGIN
+            SELECT * FROM question_categories WHERE (request_id = '' OR id=request_id);
+            END
+            ;;
+        </sql>
+        <rollback>
+            DELETE FROM question_categories WHERE name in ('Git', 'Docker')
+        </rollback>
+    </changeSet>
+
+    <changeSet id="Add records and SELECT_QUALIFICATIONS procedure to qualification table" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+            INSERT INTO qualification VALUES (1, 'TD', 1);
+            #
+            INSERT INTO qualification VALUES (2, 'JAE', 2);
+            #
+            INSERT INTO qualification VALUES (3, 'AE', 3);
+            #
+            DROP procedure IF EXISTS `SELECT_QUALIFICATIONS`
+            #
+
+            CREATE PROCEDURE `SELECT_QUALIFICATIONS` (
+            In request_id varchar(11)
+            )
+            BEGIN
+            SELECT * FROM qualification WHERE (request_id = '' OR id=request_id);
+            END
+        </sql>
+        <rollback>
+            DELETE FROM qualification WHERE name in ('TD', 'JAE', 'AE')
+        </rollback>
+    </changeSet>
+
+    <changeSet id="Add SELECT_QUESTIONS procedure to questions table" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+            DROP procedure IF EXISTS `SELECT_QUESTIONS`;
+
+            #
+
+            CREATE PROCEDURE `SELECT_QUESTIONS`(
+            IN request_id VARCHAR(11),
+            IN request_category_id VARCHAR(11),
+            IN request_status_id VARCHAR(11),
+            IN request_min_qual_id VARCHAR(11),
+            IN request_max_qual_id VARCHAR(11),
+            IN request_creator_id VARCHAR(11),
+            IN request_approver_id VARCHAR(11)
+            )
+
+            BEGIN
+
+            SELECT
+            questions.*,
+            qs.name as status_name,
+            qc.name as category_name,
+            qlf1.name as min_qual_name_name,
+            qlf2.name as max_qual_name_name,
+            us1.user_name as creator_name,
+            us2.user_name as approver_name
+
+            FROM questions
+            LEFT JOIN question_statuses as qs ON questions.status_id = qs.id
+            LEFT JOIN question_categories as qc ON questions.category_id = qc.id
+            LEFT JOIN qualification as qlf1 ON questions.min_qual_id = qlf1.id
+            LEFT JOIN qualification as qlf2 ON questions.max_qual_id = qlf2.id
+            LEFT JOIN users as us1 ON questions.creator_id = us1.id
+            LEFT JOIN users as us2 ON questions.approver_id = us2.id
+
+            WHERE (request_id= '' OR questions.id=request_id)
+            AND (request_category_id = '' OR questions.category_id=request_category_id)
+            AND (request_status_id = '' OR questions.status_id=request_status_id)
+            AND (request_min_qual_id = '' OR questions.min_qual_id=request_min_qual_id)
+            AND (request_max_qual_id = '' OR questions.max_qual_id=request_max_qual_id)
+            AND (request_creator_id = '' OR questions.creator_id=request_creator_id)
+            AND (request_approver_id = '' OR approver_id=request_approver_id)
+            ORDER BY created DESC;
+            END
+        </sql>
+        <rollback>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

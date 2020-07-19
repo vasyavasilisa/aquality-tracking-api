@@ -81,13 +81,13 @@ public class ExcelUtils {
     }
 
     private void CreateRows(JSONArray objects, XSSFSheet sheet, List<Pair<String, String>> fields) throws JSONException {
-        for (int i = 0; i < objects.length() + 1; i++) {
+        for (int i = 0; i &lt;objects.length() + 1; i++) {
             XSSFRow row = sheet.createRow(i);
             JSONObject obj = new JSONObject();
             if (i != 0) {
                 obj = (JSONObject) objects.get(i - 1);
             }
-            for (int j = 0; j < fields.size(); j++) {
+            for (int j = 0; j &lt;fields.size(); j++) {
                 XSSFCell localXSSFCell = row.createCell(j);
                 if (i == 0) {
                     if (j == 0) {
@@ -121,11 +121,11 @@ public class ExcelUtils {
     }
 
     private void CreateRows(JSONArray objects, HSSFSheet sheet, List<Pair<String, String>> fields) throws JSONException {
-        for (int r = 0; r < objects.length(); r++) {
+        for (int r = 0; r &lt;objects.length(); r++) {
             HSSFRow row = sheet.createRow(r + 1);
             JSONObject obj = (JSONObject) objects.get(r);
 
-            for (int c = 0; c < fields.size(); c++) {
+            for (int c = 0; c &lt;fields.size(); c++) {
                 HSSFCell cell = row.createCell(c);
                 cell.setCellValue(obj.getString(fields.get(c).right));
             }

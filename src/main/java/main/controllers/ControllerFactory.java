@@ -4,9 +4,11 @@ import main.controllers.Administration.EmailSettingsController;
 import main.controllers.Administration.StepTypeController;
 import main.controllers.Administration.UserController;
 import main.controllers.Project.*;
+import main.controllers.QualificationSurvey.QuestionController;
 import main.model.dto.project.*;
 import main.model.dto.settings.EmailSettingsDto;
 import main.model.dto.settings.UserDto;
+import main.model.dto.survey.QuestionDto;
 
 public class ControllerFactory {
     private UserDto user;
@@ -77,5 +79,9 @@ public class ControllerFactory {
     }
     public IssueController getHandler(IssueDto entity) {
         return new IssueController(user);
+    }
+
+    public QuestionController getHandler(QuestionDto entity) {
+        return new QuestionController(user);
     }
 }

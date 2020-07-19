@@ -16,7 +16,7 @@ public class RS_Converter {
         try{while (resultSet.next()) {
             int total_columns = resultSet.getMetaData().getColumnCount();
             JSONObject obj = new JSONObject();
-            for (int i = 0; i < total_columns; i++) {
+            for (int i = 0; i &lt;total_columns; i++) {
                 obj.put(resultSet.getMetaData().getColumnLabel(i + 1)
                         .toLowerCase(), resultSet.getObject(i + 1));
             }

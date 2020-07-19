@@ -1,5 +1,4 @@
 -- Uncomment line below to run in MySQL Workbench
--- DELIMITER ;;
 
 SET CHARACTER SET 'utf8';;
 

@@ -15,7 +15,7 @@ public class RegexpUtil {
         boolean result = actualGroups.size() == expectedGroups.size() && actualGroups.size() > 0;
 
         if(result) {
-            for (int i = 0; i < actualGroups.size(); i++) {
+            for (int i = 0; i &lt;actualGroups.size(); i++) {
                 result = actualGroups.get(i).equals(expectedGroups.get(i));
                 if(!result) {
                     break;

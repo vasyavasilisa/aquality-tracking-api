@@ -35,10 +35,6 @@
 
             #
 
-            DROP TABLE IF EXISTS `question_statuses`;
-
-            #
-
             CREATE TABLE `question_statuses` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `name` varchar(45) NOT NULL,

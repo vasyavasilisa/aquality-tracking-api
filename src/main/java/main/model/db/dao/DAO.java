@@ -281,7 +281,7 @@ public abstract class DAO<T extends BaseDto> {
     private CallableStatement tryExecute(CallableStatement callableStatement) throws AqualitySQLException {
         int counter = 0;
         SQLException lastException = null;
-        while(counter < 5) {
+        while(counter &lt;5) {
             try {
                 callableStatement.execute();
                 return callableStatement;

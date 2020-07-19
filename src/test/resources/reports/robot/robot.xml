@@ -1096,7 +1096,7 @@ Without any arguments.</msg>
 <arguments>
 </arguments>
 <msg timestamp="20200317 12:39:08.284" level="DEBUG">Argument types are:
-&lt;class 'bool'&gt;</msg>
+<class 'bool'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:08.284" endtime="20200317 12:39:08.284"></status>
 </kw>
 <status status="PASS" starttime="20200317 12:39:07.576" endtime="20200317 12:39:08.284"></status>
@@ -1127,8 +1127,8 @@ given `alias`</doc>
 <arguments>
 </arguments>
 <msg timestamp="20200317 12:39:08.962" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
+<class 'int'&gt;
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:08.962" endtime="20200317 12:39:08.962"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
@@ -1866,7 +1866,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:08.969" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:08.969" endtime="20200317 12:39:08.969"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -1877,7 +1877,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:08.970" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:08.970" endtime="20200317 12:39:08.970"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -1928,7 +1928,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:09.717" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:09.717" endtime="20200317 12:39:09.717"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -1939,7 +1939,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:09.718" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:09.717" endtime="20200317 12:39:09.718"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -1990,7 +1990,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:10.441" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:10.441" endtime="20200317 12:39:10.441"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2001,7 +2001,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:10.442" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:10.441" endtime="20200317 12:39:10.442"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2052,7 +2052,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:11.053" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:11.053" endtime="20200317 12:39:11.053"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2063,7 +2063,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:11.054" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:11.054" endtime="20200317 12:39:11.054"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2114,7 +2114,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:11.672" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:11.672" endtime="20200317 12:39:11.672"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2125,7 +2125,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:11.673" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:11.673" endtime="20200317 12:39:11.673"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2176,7 +2176,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:12.308" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:12.307" endtime="20200317 12:39:12.308"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2187,7 +2187,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:12.308" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:12.308" endtime="20200317 12:39:12.308"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2238,7 +2238,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:12.938" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:12.938" endtime="20200317 12:39:12.938"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2249,7 +2249,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:12.939" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:12.939" endtime="20200317 12:39:12.939"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2300,7 +2300,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:13.554" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:13.554" endtime="20200317 12:39:13.555"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2311,7 +2311,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:13.555" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:13.555" endtime="20200317 12:39:13.555"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2362,7 +2362,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:14.172" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:14.172" endtime="20200317 12:39:14.173"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2373,7 +2373,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:14.173" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:14.173" endtime="20200317 12:39:14.173"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2424,7 +2424,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:14.794" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:14.794" endtime="20200317 12:39:14.794"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2435,7 +2435,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:14.795" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:14.794" endtime="20200317 12:39:14.795"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2486,7 +2486,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:15.445" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:15.445" endtime="20200317 12:39:15.446"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2497,7 +2497,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:15.446" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:15.446" endtime="20200317 12:39:15.446"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2548,7 +2548,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:16.069" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:16.069" endtime="20200317 12:39:16.069"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2559,7 +2559,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:16.070" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:16.070" endtime="20200317 12:39:16.070"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2610,7 +2610,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:16.693" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:16.693" endtime="20200317 12:39:16.693"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2621,7 +2621,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:16.694" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:16.694" endtime="20200317 12:39:16.694"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2672,7 +2672,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:17.326" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:17.326" endtime="20200317 12:39:17.327"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2683,7 +2683,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:17.327" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:17.327" endtime="20200317 12:39:17.327"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2734,7 +2734,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:17.939" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:17.939" endtime="20200317 12:39:17.939"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2745,7 +2745,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:17.940" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:17.940" endtime="20200317 12:39:17.940"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2786,7 +2786,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:17.944" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:17.943" endtime="20200317 12:39:17.944"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2797,7 +2797,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:17.944" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:17.944" endtime="20200317 12:39:17.944"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2848,7 +2848,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:18.567" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:18.566" endtime="20200317 12:39:18.567"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2859,7 +2859,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:18.567" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:18.567" endtime="20200317 12:39:18.568"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2910,7 +2910,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:19.194" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:19.194" endtime="20200317 12:39:19.194"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2921,7 +2921,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:19.195" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:19.195" endtime="20200317 12:39:19.195"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -2972,7 +2972,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:19.815" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:19.815" endtime="20200317 12:39:19.815"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -2983,7 +2983,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:19.815" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:19.815" endtime="20200317 12:39:19.816"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -3034,7 +3034,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:20.429" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:20.429" endtime="20200317 12:39:20.429"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -3045,7 +3045,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:20.430" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:20.429" endtime="20200317 12:39:20.430"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -3096,7 +3096,7 @@ given `alias`</doc>
 <var>${entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:21.046" level="DEBUG">Argument types are:
-&lt;class 'dict'&gt;</msg>
+<class 'dict'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:21.046" endtime="20200317 12:39:21.047"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
@@ -3107,7 +3107,7 @@ given `alias`</doc>
 <var>${expected_string_within_entry}</var>
 </assign>
 <msg timestamp="20200317 12:39:21.047" level="DEBUG">Argument types are:
-&lt;type 'unicode'&gt;</msg>
+<type 'unicode'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:21.047" endtime="20200317 12:39:21.047"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
@@ -4783,8 +4783,8 @@ version: None</msg>
 <arguments>
 </arguments>
 <msg timestamp="20200317 12:39:47.662" level="DEBUG">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'int'&gt;</msg>
+<class 'int'&gt;
+<class 'int'&gt;</msg>
 <status status="PASS" starttime="20200317 12:39:47.661" endtime="20200317 12:39:47.662"></status>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">

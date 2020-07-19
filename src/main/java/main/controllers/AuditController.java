@@ -272,7 +272,7 @@ public class AuditController extends BaseController<AuditDto> {
         if (auditId != null) {
             AuditDto searchAudit = new AuditDto();
             searchAudit.setId(auditId);
-            return get(searchAudit).get(0).getStatus_id() < 4;
+            return get(searchAudit).get(0).getStatus_id() &lt;4;
         }
         return false;
     }
@@ -357,7 +357,7 @@ public class AuditController extends BaseController<AuditDto> {
                 jsonObject.put("result", auditDto.getResult());
                 String auditorsString = "";
                 List<AuditorDto> auditors = auditDto.getAuditors();
-                for (int j = 0; j < auditors.size(); j++) {
+                for (int j = 0; j &lt;auditors.size(); j++) {
                     if (j > 0) {
                         auditorsString += ", ";
                     }

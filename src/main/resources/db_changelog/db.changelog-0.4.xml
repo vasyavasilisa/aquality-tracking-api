@@ -489,79 +489,79 @@
     </changeSet>
 
     <changeSet id="AuditCommentToUID" author="v.kostyukevich">
-    <sql endDelimiter="#">
-        DROP procedure IF EXISTS `union_reporting`.`INSERT_AUDIT_COMMENT`;
+        <sql endDelimiter="#">
+            DROP procedure IF EXISTS `union_reporting`.`INSERT_AUDIT_COMMENT`;
 
-        #
+            #
 
-        CREATE PROCEDURE `union_reporting`.`INSERT_AUDIT_COMMENT`(
-        IN request_id varchar(11),
-        IN request_audit_id varchar(11),
-        IN request_user_id VARCHAR(11),
-        IN comment_body Text,
-        IN UID VARCHAR(11)
-        )
-        BEGIN
-        DECLARE EXIT HANDLER FOR SQLSTATE '42000'
-        IF NOT EXISTS (SELECT * FROM union_reporting.user_roles
-        right join union_reporting.users on union_reporting.user_roles.user_id = id
-        where id = UID
-        AND (users.manager = 1 OR users.auditor = 1 OR users.audit_admin = 1
-        OR (union_reporting.user_roles.project_id = (SELECT project_id FROM audits Where id = request_audit_id)
-        AND (user_roles.admin = 1 OR user_roles.manager = 1 OR user_roles.engineer = 1))))
-        THEN
-        signal sqlstate '23515';
-        END IF;
+            CREATE PROCEDURE `union_reporting`.`INSERT_AUDIT_COMMENT`(
+            IN request_id varchar(11),
+            IN request_audit_id varchar(11),
+            IN request_user_id VARCHAR(11),
+            IN comment_body Text,
+            IN UID VARCHAR(11)
+            )
+            BEGIN
+            DECLARE EXIT HANDLER FOR SQLSTATE '42000'
+            IF NOT EXISTS (SELECT * FROM union_reporting.user_roles
+            right join union_reporting.users on union_reporting.user_roles.user_id = id
+            where id = UID
+            AND (users.manager = 1 OR users.auditor = 1 OR users.audit_admin = 1
+            OR (union_reporting.user_roles.project_id = (SELECT project_id FROM audits Where id = request_audit_id)
+            AND (user_roles.admin = 1 OR user_roles.manager = 1 OR user_roles.engineer = 1))))
+            THEN
+            signal sqlstate '23515';
+            END IF;
 
-        INSERT INTO union_reporting.audit_comments (`id`, `audit_id`, `user_id`, `body`)
-        VALUES (
-        IF(request_id='',null,request_id),
-        request_audit_id,
-        request_user_id,
-        comment_body
-        )
-        ON DUPLICATE KEY UPDATE
-        body = IF(comment_body='',body,comment_body)
-        ;
+            INSERT INTO union_reporting.audit_comments (`id`, `audit_id`, `user_id`, `body`)
+            VALUES (
+            IF(request_id='',null,request_id),
+            request_audit_id,
+            request_user_id,
+            comment_body
+            )
+            ON DUPLICATE KEY UPDATE
+            body = IF(comment_body='',body,comment_body)
+            ;
 
-        Select * from audit_comments Where id=LAST_INSERT_ID();
+            Select * from audit_comments Where id=LAST_INSERT_ID();
 
-        END
+            END
 
-        #
+            #
 
-        DROP procedure IF EXISTS `union_reporting`.`SELECT_AUDIT_COMMENT`;
+            DROP procedure IF EXISTS `union_reporting`.`SELECT_AUDIT_COMMENT`;
 
-        #
+            #
 
-        CREATE PROCEDURE `union_reporting`.`SELECT_AUDIT_COMMENT`(
-        In request_audit_id varchar(11),
-        In request_user_id varchar(11),
-        In UID VARCHAR(11)
-        )
-        BEGIN
-        IF NOT EXISTS (SELECT * FROM union_reporting.user_roles
-        right join union_reporting.users on union_reporting.user_roles.user_id = id
-        where id = UID
-        AND (users.manager = 1 OR users.auditor = 1 OR users.audit_admin = 1 OR users.account_manager = 1 OR users.unit_coordinator = 1 OR users.head = 1
-        OR (union_reporting.user_roles.project_id = (SELECT project_id FROM audits Where id = request_audit_id)
-        AND (user_roles.admin = 1 OR user_roles.manager = 1))))
-        THEN
-        signal sqlstate '23515';
-        END IF;
+            CREATE PROCEDURE `union_reporting`.`SELECT_AUDIT_COMMENT`(
+            In request_audit_id varchar(11),
+            In request_user_id varchar(11),
+            In UID VARCHAR(11)
+            )
+            BEGIN
+            IF NOT EXISTS (SELECT * FROM union_reporting.user_roles
+            right join union_reporting.users on union_reporting.user_roles.user_id = id
+            where id = UID
+            AND (users.manager = 1 OR users.auditor = 1 OR users.audit_admin = 1 OR users.account_manager = 1 OR users.unit_coordinator = 1 OR users.head = 1
+            OR (union_reporting.user_roles.project_id = (SELECT project_id FROM audits Where id = request_audit_id)
+            AND (user_roles.admin = 1 OR user_roles.manager = 1))))
+            THEN
+            signal sqlstate '23515';
+            END IF;
 
-        SELECT * From union_reporting.audit_comments
-        WHERE (request_audit_id = '' OR audit_id=request_audit_id)
-        AND (request_user_id  = '' OR user_id=request_user_id)
-        ORDER BY created DESC
-        ;
+            SELECT * From union_reporting.audit_comments
+            WHERE (request_audit_id = '' OR audit_id=request_audit_id)
+            AND (request_user_id  = '' OR user_id=request_user_id)
+            ORDER BY created DESC
+            ;
 
-        END
+            END
 
-    </sql>
-    <rollback>
-    </rollback>
-</changeSet>
+        </sql>
+        <rollback>
+        </rollback>
+    </changeSet>
 
     <changeSet id="AuditorToUID" author="v.kostyukevich">
         <sql endDelimiter="#">
@@ -681,16 +681,16 @@
             ((SELECT a.*
             FROM `audits` a
             LEFT JOIN `audits` b
-            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.created &lt; b.created
-                                                                                                     WHERE b.created is NULL) as created
+            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.created &lt;b.created
+            WHERE b.created is NULL) as created
             ) ON projects.id = created.project_id
 
             LEFT JOIN (
             (SELECT a.*
             FROM `audits` a
             LEFT JOIN `audits` b
-            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.submitted &lt; b.submitted
-                                                                                                       WHERE b.submitted is NULL AND a.submitted is NOT NULL) as submitted
+            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.submitted &lt;b.submitted
+            WHERE b.submitted is NULL AND a.submitted is NOT NULL) as submitted
             ) ON projects.id = submitted.project_id AND submitted.service_type_id = created.service_type_id
 
             LEFT JOIN audit_statuses ON created.status_id = audit_statuses.id;

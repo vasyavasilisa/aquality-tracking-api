@@ -52,7 +52,7 @@ class BaseImporter {
 
         logToImport("Starting test results creation.");
 
-        for (int i = 0; i < testResults.size(); i++) {
+        for (int i = 0; i &lt;testResults.size(); i++) {
             TestResultDto result = testResults.get(i);
 
             if(result.getInternalTestId() != null){

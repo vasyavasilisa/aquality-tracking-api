@@ -45,7 +45,7 @@ public class StepController extends BaseController<StepDto> {
     }
 
     public List<StepDto> updateOrder(List<Step2TestDto> entities) throws AqualityException {
-        if (entities.size() < 1) {
+        if (entities.size() &lt;1) {
             throw new AqualityException("The test should have at least one step!");
         }
         Integer projectId = entities.get(0).getProject_id();
