@@ -437,7 +437,7 @@
             ((SELECT a.*
             FROM `audits` a
             LEFT JOIN `audits` b
-            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.created &lt;b.created
+            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.created &lt; b.created
                                                                                                      WHERE b.created is NULL) as created
             ) ON projects.id = created.project_id
 
@@ -445,7 +445,7 @@
             (SELECT a.*
             FROM `audits` a
             LEFT JOIN `audits` b
-            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.submitted &lt;b.submitted
+            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.submitted &lt; b.submitted
                                                                                                        WHERE b.submitted is NULL AND a.submitted is NOT NULL) as submitted
             ) ON projects.id = submitted.project_id AND submitted.service_type_id = created.service_type_id
 
@@ -1205,7 +1205,7 @@
         DECLARE min_len INT DEFAULT 3;
         DECLARE str_len INT DEFAULT 0;
         SET str_len = LENGTH(NEW.name);
-        IF str_len &lt;min_len
+        IF str_len &lt; min_len
                      THEN SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Test name cannot be empty or less than 3 symbols!';
         END IF;
@@ -1229,7 +1229,7 @@
         DECLARE min_len INT DEFAULT 3;
         DECLARE str_len INT DEFAULT 0;
         SET str_len = LENGTH(NEW.name);
-        IF str_len &lt;min_len
+        IF str_len &lt; min_len
         THEN SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Test name cannot be empty or less than 3 symbols!';
         END IF;
