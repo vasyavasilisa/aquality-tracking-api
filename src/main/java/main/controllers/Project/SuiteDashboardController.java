@@ -56,7 +56,7 @@ public class SuiteDashboardController extends BaseController<SuiteDashboardDto> 
     }
 
     private List<SuiteDashboardDto> fillSuiteDashboards(List<SuiteDashboardDto> dashboards) throws AqualityException {
-        if (dashboards.size() &lt;1) {
+        if (dashboards.size() < 1) {
             return dashboards;
         }
         List<SuiteDashboardDto> filledSuiteDashboards = new ArrayList<>();

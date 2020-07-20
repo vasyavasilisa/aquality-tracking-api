@@ -1,9 +1,9 @@
 package main.model.db.dao;
 
 import com.mysql.cj.core.conf.url.ConnectionUrlParser.Pair;
+import main.exceptions.AqualityException;
 import main.exceptions.AqualityParametersException;
 import main.exceptions.AqualitySQLException;
-import main.exceptions.AqualityException;
 import main.model.db.RS_Converter;
 import main.model.dto.BaseDto;
 import main.model.dto.DtoMapper;
@@ -19,8 +19,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static javax.swing.UIManager.get;
 
 public abstract class DAO<T extends BaseDto> {
     private Connection connection;
@@ -281,7 +279,7 @@ public abstract class DAO<T extends BaseDto> {
     private CallableStatement tryExecute(CallableStatement callableStatement) throws AqualitySQLException {
         int counter = 0;
         SQLException lastException = null;
-        while(counter &lt;5) {
+        while(counter < 5) {
             try {
                 callableStatement.execute();
                 return callableStatement;

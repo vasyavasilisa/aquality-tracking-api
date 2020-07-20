@@ -2,7 +2,6 @@ package main.controllers.QualificationSurvey;
 
 import main.controllers.BaseController;
 import main.exceptions.AqualityException;
-import main.exceptions.AqualityPermissionsException;
 import main.model.db.dao.project.UserDao;
 import main.model.db.dao.survey.QualificationDao;
 import main.model.db.dao.survey.QuestionCategoryDao;
@@ -35,21 +34,21 @@ public class QuestionController extends BaseController<QuestionDto> {
 
     @Override
     public List<QuestionDto> get(QuestionDto entity) throws AqualityException {
-        if (baseUser.isAdmin()) {
+//        if (baseUser.isAdmin()) {
             return fillQuestions(questionDao.searchAll(entity));
-        } else {
-            throw new AqualityPermissionsException("Account is not allowed to view Suite Dashboards", baseUser);
-        }
+//        } else {
+////            throw new AqualityPermissionsException("Account is not allowed to view Suite Dashboards", baseUser);
+////        }
     }
 
     @Override
     public QuestionDto create(QuestionDto entity) throws AqualityException {
-        return null;
+        return questionDao.create(entity);
     }
 
     @Override
     public boolean delete(QuestionDto entity) throws AqualityException {
-        return false;
+        return questionDao.delete(entity);
     }
 
     private List<QuestionDto> fillQuestions(List<QuestionDto> questions) throws AqualityException {
@@ -64,7 +63,6 @@ public class QuestionController extends BaseController<QuestionDto> {
         QuestionCategoryDto questionCategoryDto = new QuestionCategoryDto();
         QualificationDto qualificationDto = new QualificationDto();
         UserDto approverDto = new UserDto();
-        UserDto createrDto = new UserDto();
 
         List<QuestionStatusDto> statuses = questionStatusDao.searchAll(questionStatusDto);
         List<QuestionCategoryDto> categories = questionCategoryDao.searchAll(questionCategoryDto);
@@ -74,10 +72,10 @@ public class QuestionController extends BaseController<QuestionDto> {
         for (QuestionDto question : questions) {
             question.setStatus(statuses.stream().filter(x -> x.getId().equals(question.getStatus_id())).findFirst().orElse(null));
             question.setCategory(categories.stream().filter(x -> x.getId().equals(question.getCategory_id())).findFirst().orElse(null));
-            question.setMin_qual(qualifications.stream().filter(x -> x.getId().equals(question.getMin_qual_id())).findFirst().orElse(null));
-            question.setMax_qual(qualifications.stream().filter(x -> x.getId().equals(question.getMax_qual_id())).findFirst().orElse(null));
+            question.setMin_qual(qualifications.stream().filter(x -> x.getId().equals(question.getMinqual_id())).findFirst().orElse(null));
+            question.setMax_qual(qualifications.stream().filter(x -> x.getId().equals(question.getMaxqual_id())).findFirst().orElse(null));
             question.setApprover(users.stream().filter(x -> x.getId().equals(question.getApprover_id())).findFirst().orElse(null));
-            question.setApprover(users.stream().filter(x -> x.getId().equals(question.getCreator_id())).findFirst().orElse(null));
+            question.setCreator(users.stream().filter(x -> x.getId().equals(question.getCreator_id())).findFirst().orElse(null));
         }
         return questions;
     }

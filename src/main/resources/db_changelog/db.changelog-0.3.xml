@@ -235,7 +235,7 @@
             DECLARE min_len INT DEFAULT 3;
             DECLARE str_len INT DEFAULT 0;
             SET str_len = LENGTH(NEW.name);
-            IF str_len &lt;min_len
+            IF str_len &lt; min_len
             THEN SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Test name cannot be empty or less than 3 symbols!';
             END IF;
@@ -423,13 +423,12 @@
     <changeSet id="fix-triggers-issue-01" author="v.kostyukevich">
         <sql endDelimiter="#">
             DROP TRIGGER IF EXISTS union_reporting.tests_BEFORE_INSERT
-            DECLARE str_len INT DEFAULT 0;
-
             #
 
             CREATE DEFINER = CURRENT_USER TRIGGER `union_reporting`.`tests_BEFORE_INSERT` BEFORE INSERT ON `tests` FOR EACH ROW
             BEGIN
             DECLARE min_len INT DEFAULT 3;
+            DECLARE str_len INT DEFAULT 0;
             SET str_len = LENGTH(NEW.name);
             IF str_len &lt;min_len
             THEN SIGNAL SQLSTATE '45000'

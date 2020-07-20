@@ -61,7 +61,7 @@ public class ProjectController extends BaseController<ProjectDto> {
         project.setId(projectId);
         List<ProjectDto> projects = get(project, false);
 
-        if (projects.size() &lt;1) {
+        if (projects.size() < 1) {
             throw new AqualityException("Project with id %s does not exists!", projectId);
         }
 

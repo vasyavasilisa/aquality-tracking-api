@@ -84,8 +84,8 @@
             IN request_id VARCHAR(11),
             IN request_category_id VARCHAR(11),
             IN request_status_id VARCHAR(11),
-            IN request_min_qual_id VARCHAR(11),
-            IN request_max_qual_id VARCHAR(11),
+            IN request_minqual_id VARCHAR(11),
+            IN request_maxqual_id VARCHAR(11),
             IN request_creator_id VARCHAR(11),
             IN request_approver_id VARCHAR(11)
             )
@@ -112,8 +112,8 @@
             WHERE (request_id= '' OR questions.id=request_id)
             AND (request_category_id = '' OR questions.category_id=request_category_id)
             AND (request_status_id = '' OR questions.status_id=request_status_id)
-            AND (request_min_qual_id = '' OR questions.min_qual_id=request_min_qual_id)
-            AND (request_max_qual_id = '' OR questions.max_qual_id=request_max_qual_id)
+            AND (request_minqual_id = '' OR questions.min_qual_id=request_minqual_id)
+            AND (request_maxqual_id = '' OR questions.max_qual_id=request_maxqual_id)
             AND (request_creator_id = '' OR questions.creator_id=request_creator_id)
             AND (request_approver_id = '' OR approver_id=request_approver_id)
             ORDER BY created DESC;
@@ -121,5 +121,58 @@
         </sql>
         <rollback>
         </rollback>
+    </changeSet>
+    <changeSet id="Update INSERT_DRAFT_QUESTIONS procedure" author="v.morochkovskaya">
+        <sql endDelimiter="#">
+            DROP procedure IF EXISTS `INSERT_DRAFT_QUESTIONS`
+
+            #
+
+            CREATE PROCEDURE `INSERT_DRAFT_QUESTIONS` (
+            In request_id varchar(11),
+            In request_status_id varchar(11),
+            In request_category_id varchar(11),
+            In request_minqual_id varchar(11),
+            In request_maxqual_id varchar(11),
+            In request_question varchar(200),
+            In request_answer varchar(200),
+            In request_creator_id varchar(11)
+            )
+            BEGIN INSERT INTO questions (id, status_id, category_id, min_qual_id, max_qual_id, question, answer, creator_id)
+            VALUES (IF(request_id='',null,request_id),request_status_id,request_category_id, request_minqual_id, request_maxqual_id, request_question, request_answer, request_creator_id)
+            ON DUPLICATE KEY UPDATE
+            category_id= IF(request_category_id = '', category_id, request_category_id),
+            min_qual_id = IF(request_minqual_id = '', min_qual_id, request_minqual_id),
+            max_qual_id = IF(request_maxqual_id = '', max_qual_id, request_maxqual_id),
+            question = IF(request_question = '', question, request_question),
+            answer = IF(request_answer = '', answer, request_answer),
+            creator_id = IF(request_creator_id = '', creator_id, request_creator_id)
+            ;
+
+            SELECT *
+            FROM questions
+            WHERE
+            questions.id=request_id;
+            END;;
+        </sql>
+        <rollback>
+            DROP TRIGGER IF EXISTS questions_BEFORE_INSERT
+        </rollback>
+    </changeSet>
+    <changeSet id="REMOVE_QUESTION" author="v.morochkovskaya">
+    <sql endDelimiter="#">
+
+        DROP procedure IF EXISTS `REMOVE_QUESTION`;
+
+        #
+
+        CREATE PROCEDURE `REMOVE_QUESTION`(IN request_id varchar(11))
+        BEGIN
+        DELETE FROM questions
+        WHERE id=request_id;
+        END
+    </sql>
+    <rollback>
+    </rollback>
     </changeSet>
 </databaseChangeLog>

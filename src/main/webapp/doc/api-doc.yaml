@@ -7,7 +7,7 @@ info:
     To Authorize you can use API token that you can create in Aquality Tracking Administration
     - As user name you should use `project:{your project id}`
     - As password you should use API token
-  version: '0.3.12'
+  version: '0.3.11'
   title: 'Aquality Tracking - API documentation'
 
 servers:
@@ -960,11 +960,11 @@ paths:
           schema:
             type: integer
         - in: query
-          name: min_qual_id
+          name: minqual_id
           schema:
             type: integer
         - in: query
-          name: max_qual_id
+          name: maxqual_id
           schema:
             type: integer
         - in: query
@@ -972,7 +972,7 @@ paths:
           schema:
             type: integer
         - in: query
-          name: creater_id
+          name: creator_id
           schema:
             type: integer
       responses:
@@ -1009,6 +1009,56 @@ paths:
                   "id": 5
                 }
               ]
+    post:
+       tags:
+         - 'questions'
+       summary: 'Create or Update Question'
+       description: 'Create or Update Question using given data'
+       produces:
+         - 'application/json'
+       requestBody:
+         required: true
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                 id:
+                   schema:
+                     type: integer
+                     example: 1
+                 status_id:
+                   schema:
+                     type: integer
+                     example: 1
+                 category_id:
+                   schema:
+                     type: integer
+                     example: 1
+                 minqual_id:
+                   schema:
+                     type: integer
+                     example: 1
+                 maxqual_id:
+                   schema:
+                     type: integer
+                     example: 1
+                 creator_id:
+                   schema:
+                     type: integer
+                     example: 1
+                 question:
+                   schema:
+                     type: string
+                     example: 'string'
+                 answer:
+                   schema:
+                     type: string
+                     example: 'string'
+       responses:
+           200:
+             description: 'Question was created/updated (ID of created/updated milestone is in the "id" header).'
+
   /result_resolution:
     get:
       tags:
@@ -2377,6 +2427,6 @@ definitions:
       answer:
         type: string
       approver_id:
-         type: integer
+        type: integer
       creator_id:
         type: integer
