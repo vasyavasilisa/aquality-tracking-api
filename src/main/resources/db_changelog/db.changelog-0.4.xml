@@ -681,7 +681,7 @@
             ((SELECT a.*
             FROM `audits` a
             LEFT JOIN `audits` b
-            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.created &lt;b.created
+            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.created &lt; b.created
             WHERE b.created is NULL) as created
             ) ON projects.id = created.project_id
 
@@ -689,7 +689,7 @@
             (SELECT a.*
             FROM `audits` a
             LEFT JOIN `audits` b
-            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.submitted &lt;b.submitted
+            ON a.project_id = b.project_id AND a.service_type_id = b.service_type_id AND a.submitted &lt; b.submitted
             WHERE b.submitted is NULL AND a.submitted is NOT NULL) as submitted
             ) ON projects.id = submitted.project_id AND submitted.service_type_id = created.service_type_id
 

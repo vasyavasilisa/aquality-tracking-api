@@ -105,13 +105,13 @@
       <Output>
         <StdOut>
           Given I have entered 40 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(40) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(40) (0.0s)
           And I have entered 50 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(50) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(50) (0.0s)
           When I press add
-          -> done: Steps.WhenIPressAdd() (0.0s)
+          -&gt; done: Steps.WhenIPressAdd() (0.0s)
           Then the result should be 90 on the screen
-          -> done: Steps.ThenTheResultShouldBePass(90) (0.0s)
+          -&gt; done: Steps.ThenTheResultShouldBePass(90) (0.0s)
         </StdOut>
       </Output>
     </UnitTestResult>
@@ -119,13 +119,13 @@
       <Output>
         <StdOut>
           Given I have entered 60 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(60) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(60) (0.0s)
           And I have entered 70 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(70) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(70) (0.0s)
           When I press add
-          -> done: Steps.WhenIPressAdd() (0.0s)
+          -&gt; done: Steps.WhenIPressAdd() (0.0s)
           Then the result should be 130 on the screen
-          -> done: Steps.ThenTheResultShouldBePass(130) (0.0s)
+          -&gt; done: Steps.ThenTheResultShouldBePass(130) (0.0s)
         </StdOut>
       </Output>
     </UnitTestResult>
@@ -133,13 +133,13 @@
       <Output>
         <StdOut>
           Given I have entered 50 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(50) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(50) (0.0s)
           And I have entered 70 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(70) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(70) (0.0s)
           When I press add
-          -> done: Steps.WhenIPressAdd() (0.0s)
+          -&gt; done: Steps.WhenIPressAdd() (0.0s)
           Then the result should be 120 on the screen
-          -> done: Steps.ThenTheResultShouldBePass(120) (0.0s)
+          -&gt; done: Steps.ThenTheResultShouldBePass(120) (0.0s)
         </StdOut>
       </Output>
     </UnitTestResult>
@@ -147,13 +147,13 @@
       <Output>
         <StdOut>
           Given I have entered 50 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(50) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(50) (0.0s)
           And I have entered -1 into the calculator
-          -> done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(-1) (0.0s)
+          -&gt; done: Steps.GivenIHaveEnteredSomethingIntoTheCalculator(-1) (0.0s)
           When I press add
-          -> done: Steps.WhenIPressAdd() (0.0s)
+          -&gt; done: Steps.WhenIPressAdd() (0.0s)
           Then the result should be -50 on the screen
-          -> error: Assert.NotEqual() Failure
+          -&gt; error: Assert.NotEqual() Failure
         </StdOut>
         <ErrorInfo>
           <Message>

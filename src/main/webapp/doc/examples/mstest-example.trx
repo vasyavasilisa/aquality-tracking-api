@@ -92,7 +92,7 @@
 
 EXCEPTION [0] The test step 'The 'Tolerance' field reacts to each parameter as follows after setting it as '1' on Neutral Loss Search elucidation tool:' failed because of errors.
  - Check if Tooltip exists property equals true for 0.00 data
- - AreEqual : [Expected:True] [Actual:False] : Assert.AreEqual failed. Expected:<True>. Actual:<False>.
+ - AreEqual : [Expected:True] [Actual:False] : Assert.AreEqual failed. Expected:&lt;True&gt;. Actual:&lt;False&gt;.
 
    at Waters.UIAutomation.Unifi.UITest.StepDefinitions.AnalysisCenter.Review.Tools.ElucidationToolset.ElucidationToolSetSteps.VerifyElucidationTextBox(QETextBox textBox, String oppositeValue, Table table) in D:\Unifi\Waters.UIAutomation.Unifi\Waters.UIAutomation.Unifi.UITest\StepDefinitions\AnalysisCenter\Review\Tools\ElucidationToolset\ElucidationToolSetSteps.cs:line 642
    at Waters.UIAutomation.Unifi.UITest.StepDefinitions.AnalysisCenter.Review.Tools.ElucidationToolset.SubView.ElucidationToolNeutralLossSteps.FieldReactsToTheTestDataAsFollows(String field, String oppositeValue, Table table) in D:\Unifi\Waters.UIAutomation.Unifi\Waters.UIAutomation.Unifi.UITest\StepDefinitions\AnalysisCenter\Review\Tools\ElucidationToolset\SubView\ElucidationToolNeutralLossSteps.cs:line 94
@@ -100,7 +100,7 @@ EXCEPTION [0] The test step 'The 'Tolerance' field reacts to each parameter as f
 
 EXCEPTION [1] The test step 'The 'Tolerance' field reacts to each parameter as follows after setting it as '1' on Neutral Loss Search elucidation tool:' failed because of errors.
  - Check if Tooltip exists property equals true for 10000.01 data
- - AreEqual : [Expected:True] [Actual:False] : Assert.AreEqual failed. Expected:<True>. Actual:<False>.
+ - AreEqual : [Expected:True] [Actual:False] : Assert.AreEqual failed. Expected:&lt;True&gt;. Actual:&lt;False&gt;.
 
    at Waters.UIAutomation.Unifi.UITest.StepDefinitions.AnalysisCenter.Review.Tools.ElucidationToolset.ElucidationToolSetSteps.VerifyElucidationTextBox(QETextBox textBox, String oppositeValue, Table table) in D:\Unifi\Waters.UIAutomation.Unifi\Waters.UIAutomation.Unifi.UITest\StepDefinitions\AnalysisCenter\Review\Tools\ElucidationToolset\ElucidationToolSetSteps.cs:line 642
    at Waters.UIAutomation.Unifi.UITest.StepDefinitions.AnalysisCenter.Review.Tools.ElucidationToolset.SubView.ElucidationToolNeutralLossSteps.FieldReactsToTheTestDataAsFollows(String field, String oppositeValue, Table table) in D:\Unifi\Waters.UIAutomation.Unifi\Waters.UIAutomation.Unifi.UITest\StepDefinitions\AnalysisCenter\Review\Tools\ElucidationToolset\SubView\ElucidationToolNeutralLossSteps.cs:line 94
